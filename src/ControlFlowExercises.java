@@ -134,11 +134,14 @@ public class ControlFlowExercises {
 
 
         String keepGoing;
+        finish:
 
         do {
             System.out.println("Please enter a number grade from 0-100");
             int numGrade = Integer.parseInt(sc.nextLine());
-            if (numGrade <= 59){
+            if (numGrade <= 0){
+                System.out.println("Wow, you are dumb.");
+            } else if (numGrade <= 59){
                 System.out.println('F');
             } else if (numGrade <= 66) {
                 System.out.println('D');
@@ -148,10 +151,22 @@ public class ControlFlowExercises {
                 System.out.println('B');
             } else if (numGrade <= 100) {
                 System.out.println('A');
+            } else if (numGrade > 100) {
+                System.out.println("OK teachers pet.");
             }
 
-            System.out.println("Would you like to check another grade?");
-            keepGoing = sc.nextLine();
+            do {
+                System.out.println("Would you like to check another grade?");
+                keepGoing = sc.nextLine();
+                if (keepGoing.equalsIgnoreCase("yes")){
+                    System.out.println("Awesome, another $20 charged to your account for the service...");
+                    break;
+                } else if (keepGoing.equalsIgnoreCase("no")){
+                    System.out.println("Goodbye!");
+                    break finish;
+                }
+                System.out.println("Just enter yes or no...");
+            } while (true);
 
         } while (keepGoing.equalsIgnoreCase("yes"));
 
@@ -159,20 +174,47 @@ public class ControlFlowExercises {
 
 
 
+
 //        Create a command line adventure game...
 //        Be creative in communicating with your user different options and for given scenerios. Create at least three phases of the adventure, for example...
-//        Home
-//                |             |
-//        Store     or      Park
+//                      Home
+//                          |             |
+//                      Store     or      Park
 //                |        |        |         |
-//        School  or  Park     Zoo  or  Pool
-//                  |
-//        Home
+//              School  or  Park     Zoo  or  Pool
+//                           |
+//                           Home
 //        Keep the game relatively simple and plan it out clearly before coding it.
-//                Create a command line Hangman game...
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//              Create a command line Hangman game...
 //        Prompt a player 1 to enter a word for player 2 to guess.
 //        Track the number of guesses by player 2. Display to the user the partially completed word
 //        String lesson methods will be helpful for this bonus
+
+
+
+
+
+
+
+
+
 
 
     }
