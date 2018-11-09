@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 public class MethodsExercises {
     public static void main(String[] args) {
 
@@ -8,80 +9,112 @@ public class MethodsExercises {
 //        System.out.println(division(5, 5));
 //        System.out.println(modulus(10, 5));
 
-//        System.out.print("Enter a number between 1 and 10: ");
-//        int userInput = getInteger(1, 10);
+
+//        int userInput = getInteger(1, 20);
+//        factorial(userInput);
+
+        diceRoll();
+
 
     }
 
 
-//    public static int addition(int num1, int num2){
-//        return num1 + num2;
-//    }
-//
-//    public static int subtraction(int num1, int num2){
-//        return num1 - num2;
-//    }
-//
-//    public static int multiplication(int num1, int num2, int total){
-////        for (int i = num2; i > 0; i -= 1){
-////            total += num1;
-////        }
-////        return total;
-//        if (num2 == 0){
-//            return total;
-//        } else {
+    public static int addition(int num1, int num2){
+        return num1 + num2;
+    }
+
+    public static int subtraction(int num1, int num2){
+        return num1 - num2;
+    }
+
+    public static int multiplication(int num1, int num2, int total){
+//        for (int i = num2; i > 0; i -= 1){
 //            total += num1;
-//            return multiplication(num1, num2 - 1, total);
 //        }
-//    }
+//        return total;
+        if (num2 == 0){
+            return total;
+        } else {
+            total += num1;
+            return multiplication(num1, num2 - 1, total);
+        }
+    }
+
+    public static int division(int num1, int num2){
+        return num1 / num2;
+    }
+
+    public static int modulus(int num1, int num2){
+        return num1 % num2;
+    }
+
+
+
+    public static int getInteger(int min, int max){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number between 1 and 20: ");
+        int input = Integer.parseInt(sc.nextLine());
+        if (input < min || input > max){
+            System.out.println("Invalid Input!");
+            return getInteger(min, max);
+        } else {
+            System.out.format("%d is a correct input. Good job!", input);
+            return input;
+        }
+    }
+
+
+    public static int factorial(int input){
+        Scanner sc = new Scanner(System.in);
+
+        long total = 1;
+        for (int i = input; i >= 1; i -= 1){
+            total *= i;
+        }
+        System.out.format("\nHere is the factorial of %d: %d", input, total);
+
+        System.out.println("\nWould you like to check another number? [yes/no]");
+        String continueFactorial = sc.nextLine();
+        return continueFactorial.equalsIgnoreCase("yes") ? factorial(getInteger(1, 20)) : 0;
+    }
+
+
+
+//    Create an application that simulates dice rolling.
 //
-//    public static int division(int num1, int num2){
-//        return num1 / num2;
-//    }
-//
-//    public static int modulus(int num1, int num2){
-//        return num1 % num2;
-//    }
+
+//"Roll" two n-sided dice, display the results of each, and then ask the user if he/she wants to roll the dice again.
+//            Use static methods to implement the method(s) that generate the random numbers.
+//    Use the .random method of the java.lang.Math class to generate random numbers.
 
 
-//
-//    public static int getInteger(int min, int max){
-//        Scanner sc = new Scanner(System.in);
-//        int input = Integer.parseInt(sc.nextLine());
-//        if (input <= 0 || input >= 11){
-//            System.out.println("It needs to be between 1 and 10.");
-//            return getInteger(1, 10);
-//        } else {
-//            System.out.format("%d is a correct input. Good job!", input);
-//            return 0;
-//        }
-//    }
+    public static int diceRoll(){
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Enter the number of sides for your dice");
+        int numOfSides = Integer.parseInt(sc.nextLine());
+        if (numOfSides <= 0) {
+         System.out.println("Invalid Input. Try Again");
+         return diceRoll();
+        }
 
-//    Calculate the factorial of a number.
-//
-//    Prompt the user to enter an integer from 1 to 10.
-//    Display the factorial of the number entered by the user.
-//    Ask if the user wants to continue.
-//    Use a for loop to calculate the factorial.
-//    Assume that the user will enter an integer, but verify it’s between 1 and 10.
-//    Use the long type to store the factorial.
-//    Continue only if the user agrees to.
-//    A factorial is a number multiplied by each of the numbers before it.
-//    Factorials are denoted by the exclamation point (n!). Ex:
-//
-//
-//            1! = 1               = 1
-//            2! = 1 x 2           = 2
-//            3! = 1 x 2 x 3       = 6
-//            4! = 1 x 2 x 3 x 4   = 24
-//    Bonus
-//
-//    Test the application and find the integer for the highest factorial that can be accurately calculated by this application, then modify the prompt so that it prompts the user for a number "from 1 to {the highest integer that returns accurate factorial calculation}". Don’t forget to change your verification too!
-//    Use Recursion to implement the factorial.
+        System.out.println("Type \"Roll\" to roll the dice.");
+        String roll = sc.nextLine();
+        if (!roll.equalsIgnoreCase("roll")) {
+         System.out.println("Invalid Input. Try Again");
+         return diceRoll();
+        }
 
+        int dice1 = randomNum(numOfSides), dice2 = randomNum(numOfSides);
+        System.out.format("The first die landed on %d. And the second die landed on %d.", dice1, dice2);
 
+        System.out.println("\nWould you like to roll another set of dice? [yes/no]");
+        String continueFactorial = sc.nextLine();
+        return continueFactorial.equalsIgnoreCase("yes") ? diceRoll() : 0;
+    }
 
-
-
+    public static int randomNum(int num){
+        Random rand = new Random();
+        return rand.nextInt(num) + 1;
+    }
 }
