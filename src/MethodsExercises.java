@@ -9,11 +9,9 @@ public class MethodsExercises {
 //        System.out.println(division(5, 5));
 //        System.out.println(modulus(10, 5));
 
+//        factorial(getInteger(1, 20));
 
-//        int userInput = getInteger(1, 20);
-//        factorial(userInput);
-
-        diceRoll();
+//        diceRoll();
 
 
     }
@@ -66,6 +64,9 @@ public class MethodsExercises {
 
     public static int factorial(int input){
         Scanner sc = new Scanner(System.in);
+
+//        if (input == 1)return 1;
+//        return input * factorial(input--);
 
         long total = 1;
         for (int i = input; i >= 1; i -= 1){
