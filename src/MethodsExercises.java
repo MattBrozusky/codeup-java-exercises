@@ -11,8 +11,65 @@ public class MethodsExercises {
 
 //        factorial(getInteger(1, 20));
 
-//        diceRoll();
+        diceRoll();
 
+//        getCalculatorInfo();
+
+    }
+
+//    Create a command line calculator application.
+//
+//    The program should welcome the user, prompt them for a calculation,
+//    and give the result. The user should be prompted after each result is
+//    outputted if they want to enter another calculation. When they
+//    say no, give them an exit message. Allow the user first to specify
+//    how many operands they will enter. Do not worry about
+//    input validation (assume user enters correct data type).
+
+    public static String getCalculatorInfo(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a calculation you want to perform. [add, subtract, multiply, divide]");
+        String calculation = sc.nextLine();
+
+        System.out.println("Please enter 2 numbers that you want to perform it on that are separated by spaces.");
+        String numbers = sc.nextLine();
+
+        int indexOfWhiteSpace = numbers.indexOf(' ');
+        int finalIndex = numbers.length();
+
+        String num1String = numbers.substring(0, indexOfWhiteSpace);
+        int num1 = Integer.parseInt(num1String);
+
+        String num2String = numbers.substring(indexOfWhiteSpace + 1, finalIndex);
+        int num2 = Integer.parseInt(num2String);
+
+        return calculator(calculation, num1, num2);
+    }
+
+    public static String calculator(String calculation, int num1, int num2){
+        Scanner sc = new Scanner(System.in);
+        switch (calculation) {
+            case "add":
+                System.out.println(addition(num1, num2));
+                break;
+            case "subtract":
+                System.out.println(subtraction(num1, num2));
+                break;
+            case "multiply":
+                System.out.println(multiplication(num1, num2, 0));
+                break;
+            case "divide":
+                System.out.println(division(num1, num2));
+                break;
+            default:
+                System.out.println("Invalid Input. Try again.");
+                getCalculatorInfo();
+                break;
+        }
+
+        System.out.println("Would you like perform another calculation? [yes/no]");
+        String continueCalculator = sc.nextLine();
+        return continueCalculator.equalsIgnoreCase("yes") ? getCalculatorInfo() : "done";
 
     }
 
@@ -119,3 +176,24 @@ public class MethodsExercises {
         return rand.nextInt(num) + 1;
     }
 }
+
+
+
+//    public static int randomWithRange(int min, int max){
+//        int range = (max - min) + 1;
+//        return (int)(Math.random() * range) + min;
+//    }
+//
+//    public static void rollDiceGame(Scanner sc) {
+//        String userChoice;
+//        System.out.print("Please enter the number of sides for the dice: ");
+//        int nSides = getInteger(1, 20);
+//        do {
+//            System.out.println("You have rolled a " + randomWithRange(1, nSides) + " and a " + randomWithRange(1, nSides));
+//            do {
+//                System.out.println("Would you like to roll again? [y/n]");
+//                userChoice = sc.next().trim();
+//            } while (!userChoice.equalsIgnoreCase("y") && !userChoice.equalsIgnoreCase("n"));
+//
+//        } while (!userChoice.equals("n"));
+//    }
