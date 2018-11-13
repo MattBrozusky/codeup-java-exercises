@@ -21,10 +21,10 @@ public class Person {
     }
 
     public static void main(String[] args) {
-        Person p1 = new Person("Matt");
-        p1.sayHello();
-        p1.setName("Bob");
-        p1.sayHello();
+//        Person p1 = new Person("Matt");
+//        p1.sayHello();
+//        p1.setName("Bob");
+//        p1.sayHello();
 
 //        Person person1 = new Person("John");
 //        Person person2 = new Person("John");

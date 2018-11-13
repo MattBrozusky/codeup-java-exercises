@@ -5,12 +5,18 @@ public class Circle {
 
 
     public Circle(double radius){
+        this.radius = radius;
+    }
 
+    public double getRadius() {
+        return radius;
     }
+
     public double getArea(){
-        return 0;
+        return 3.14 * Math.pow(this.radius, 2);
     }
+
     public double getCircumference(){
-        return 0;
+        return 2 * 3.14 * this.radius;
     }
 }

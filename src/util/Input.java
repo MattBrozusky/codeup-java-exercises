@@ -12,12 +12,12 @@ public class Input {
         return sc;
     }
 
-    String getString(Scanner sc){
+    public String getString(Scanner sc){
         System.out.println("Enter String.");
         return sc.nextLine();
     }
 
-    boolean yesNo(Scanner sc){
+    public boolean yesNo(Scanner sc){
         String yesOrNo = sc.nextLine();
         if (yesOrNo.equalsIgnoreCase("y") || yesOrNo.equalsIgnoreCase("yes")){
             System.out.println("True");
@@ -44,7 +44,7 @@ public class Input {
 //
 //    }
 
-    double getDouble(double min, double max, Scanner sc){
+    public double getDouble(double min, double max, Scanner sc){
         System.out.format("%nEnter a number between %f and %f: ", min, max);
         int input = Integer.parseInt(sc.nextLine());
         if (input < min || input > max){
