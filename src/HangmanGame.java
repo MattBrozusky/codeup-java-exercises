@@ -1,9 +1,22 @@
+import java.util.Scanner;
+
 public class HangmanGame {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
+        hangman(sc);
+
+    }
+
+    public static void hangman(Scanner sc){
+        System.out.println("Please enter a word for Hangman!");
+        String word = sc.nextLine();
 
 
     }
+
+
+
 
 //    Create a command line Hangman game:
 //            - prompt player 1 for a word
