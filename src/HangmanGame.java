@@ -9,10 +9,8 @@ public class HangmanGame {
     }
 
     public static void hangman(Scanner sc){
-        System.out.println("Please enter a word for Hangman!");
+        System.out.println("Player 1: Please enter a word for Hangman!");
         String word = sc.nextLine();
-
-
     }
 
 

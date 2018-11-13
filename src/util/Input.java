@@ -40,9 +40,15 @@ public class Input {
 //        }
 //    }
 //
-//    int getInt(Scanner sc){
-//
-//    }
+    int getInt(Scanner sc){
+        if (!sc.hasNextInt()){
+            System.out.println("Not valid integer.");
+            sc.nextLine();
+            return getInt(sc);
+        } else {
+            return sc.nextInt();
+        }
+    }
 
     public double getDouble(double min, double max, Scanner sc){
         System.out.format("%nEnter a number between %f and %f: ", min, max);
