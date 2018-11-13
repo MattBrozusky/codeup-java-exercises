@@ -2,24 +2,22 @@ package util;
 import java.util.Scanner;
 
 public class Input {
+    private Scanner sc;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        getString(sc);
-
-        getDouble(1, 50, sc);
-
+    public Input(){
+        this.sc = new Scanner(System.in);
     }
 
-    static String getString(Scanner sc){
+    public Scanner getSc() {
+        return sc;
+    }
+
+    String getString(Scanner sc){
         System.out.println("Enter String.");
-        String test = sc.nextLine();
-        System.out.printf("The string you entered is %s", test);
-        return test;
+        return sc.nextLine();
     }
 
-    static boolean yesNo(Scanner sc){
+    boolean yesNo(Scanner sc){
         String yesOrNo = sc.nextLine();
         if (yesOrNo.equalsIgnoreCase("y") || yesOrNo.equalsIgnoreCase("yes")){
             System.out.println("True");
@@ -30,7 +28,7 @@ public class Input {
         }
     }
 
-//    static int getInt(int min, int max, Scanner sc){
+//    int getInt(int min, int max, Scanner sc){
 //        System.out.print("Enter a number between 1 and 20: ");
 //        int input = Integer.parseInt(sc.nextLine());
 //        if (input < min || input > max){
@@ -42,11 +40,11 @@ public class Input {
 //        }
 //    }
 //
-//    static int getInt(Scanner sc){
+//    int getInt(Scanner sc){
 //
 //    }
 
-    static double getDouble(double min, double max, Scanner sc){
+    double getDouble(double min, double max, Scanner sc){
         System.out.format("%nEnter a number between %f and %f: ", min, max);
         int input = Integer.parseInt(sc.nextLine());
         if (input < min || input > max){
@@ -59,7 +57,7 @@ public class Input {
     }
 
 
-//    static double getDouble(Scanner sc){
+//    double getDouble(Scanner sc){
 //
 //    }
 
