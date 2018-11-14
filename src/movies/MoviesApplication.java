@@ -6,10 +6,7 @@ public class MoviesApplication {
     public static void main(String[] args) {
         Input in = new Input();
         Movie[] allMovies = MoviesArray.findAll();
-
         searchOrAdd(in, allMovies);
-
-
     }
 
     public static void searchOrAdd(Input in, Movie [] allMovies){
@@ -18,7 +15,7 @@ public class MoviesApplication {
         if (searchOrAddInput.equalsIgnoreCase("search")){
             MovieSearchFunction.allOrGenre(in, allMovies);
         } else if (searchOrAddInput.equalsIgnoreCase("add")){
-            allMovies = MovieAddFunction.addMovie(allMovies, MovieAddFunction.userCreatedMovie(in));
+            allMovies = MovieAddFunction.addMovieMethod(in, allMovies);
         } else {
             searchOrAdd(in, allMovies);
         }

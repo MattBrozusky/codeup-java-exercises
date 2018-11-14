@@ -1,7 +1,7 @@
 import java.util.Random;
 public class ServerNameGenerator {
 
-    public static String[] adjectives = {"quickly", "ambitious", "aggressive", "agreeable", "brave", "calm", "delightful", "eager", "faithful", "fat"};
+    public static String[] adjectives = {"quick", "ambitious", "aggressive", "agreeable", "brave", "calm", "delightful", "eager", "faithful", "fat"};
 
     public static String[] nouns = {"dog", "cat", "tree", "cup", "person", "plant", "building", "desk", "car", "apple"};
 
