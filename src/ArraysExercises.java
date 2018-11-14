@@ -14,9 +14,9 @@ public class ArraysExercises {
         people[1] = new Person("John");
         people[2] = new Person("Jaime");
 
-//        for (Person person : people){
-//            System.out.println(person.getName());
-//        }
+        for (Person person : people){
+            System.out.println(person.getName());
+        }
 
 
         Person matt = new Person("Matt");
