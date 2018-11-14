@@ -1,5 +1,4 @@
 package movies;
-
 import util.Input;
 
 public class MovieSearchFunction {
