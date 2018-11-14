@@ -25,8 +25,4 @@ public class Movie {
         this.name = name;
         this.category = category;
     }
-
-
-
-
 }
