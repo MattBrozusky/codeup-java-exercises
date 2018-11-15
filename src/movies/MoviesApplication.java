@@ -10,7 +10,7 @@ public class MoviesApplication {
     }
 
     public static void searchOrAdd(Input in, Movie [] allMovies){
-        System.out.println("Would you like to view search through the movies or add to the list? (Type 'search' or 'add')");
+        System.out.println("Would you like to search through the movies or add to the list? (Type 'search' or 'add')");
         String searchOrAddInput = in.getSc().nextLine(), userChoice;
         if (searchOrAddInput.equalsIgnoreCase("search")){
             MovieSearchFunction.allOrGenre(in, allMovies);
