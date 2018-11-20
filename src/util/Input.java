@@ -1,69 +1,66 @@
 package util;
+
 import java.util.Scanner;
 
 public class Input {
-    private Scanner sc;
+    private Scanner scanner;
 
-    public Input(){
-        this.sc = new Scanner(System.in);
+    public Input(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public Scanner getSc() {
-        return sc;
+    public String getString() {
+        return scanner.nextLine();
     }
 
-    public String getString(Scanner sc){
-        return sc.nextLine();
+
+    public boolean yesNo() {
+        String userInput = getString();
+        return (userInput.equalsIgnoreCase("y") || userInput.equalsIgnoreCase("yes"));
     }
 
-    public boolean yesNo(Scanner sc){
-        String yesOrNo = sc.nextLine();
-        if (yesOrNo.equalsIgnoreCase("y") || yesOrNo.equalsIgnoreCase("yes")){
-            System.out.println("True");
-            return true;
+    public int getInt() {
+        if (!scanner.hasNextInt()) {
+            System.out.println("Not valid integer. Try again.");
+            scanner.nextLine();
+            return getInt();
         } else {
-            System.out.println("False");
-            return false;
+            return scanner.nextInt();
         }
     }
 
-//    int getInt(int min, int max, Scanner sc){
-//        System.out.print("Enter a number between 1 and 20: ");
-//        int input = Integer.parseInt(sc.nextLine());
-//        if (input < min || input > max){
-//            System.out.println("Invalid Input!");
-//            return getInt(min, max, sc);
-//        } else {
-//            System.out.format("%d is a correct input. Good job!", input);
-//            return input;
-//        }
-//    }
-//
-    int getInt(Scanner sc){
-        if (!sc.hasNextInt()){
-            System.out.println("Not valid integer.");
-            sc.nextLine();
-            return getInt(sc);
+    public int getInt(int min, int max) {
+        int userInt = getInt();
+        if (userInt >= min && userInt <= max) {
+            return userInt;
         } else {
-            return sc.nextInt();
+            System.out.println("Number out of range!");
+            return getInt(min, max);
         }
     }
 
-    public double getDouble(double min, double max, Scanner sc){
-        System.out.format("%nEnter a number between %f and %f: ", min, max);
-        int input = Integer.parseInt(sc.nextLine());
-        if (input < min || input > max){
-            System.out.println("Invalid Input!");
-            return getDouble(min, max, sc);
+    public double getDouble() {
+        if (!scanner.hasNextDouble()) {
+            System.out.println("Not valid integer. Try again.");
+            scanner.nextLine();
+            return getDouble();
         } else {
-            System.out.format("%d is a correct input. Good job!", input);
-            return input;
+            return scanner.nextDouble();
+        }
+    }
+
+    public double getDouble(int min, int max) {
+        double userDouble = getDouble();
+        if (userDouble >= min && userDouble <= max) {
+            return userDouble;
+        } else {
+            System.out.println("Number out of range!");
+            return getDouble(min, max);
         }
     }
 
 
-//    double getDouble(Scanner sc){
-//
-//    }
+
+
 
 }

@@ -3,10 +3,11 @@ package grades;
 import util.Input;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class GradesApplication {
     public static void main(String[] args) {
-        Input sc = new Input();
+        Input sc = new Input(new Scanner(System.in));
 
         Student bob = new Student("Bob", 90, 60, 70);
         Student shelly = new Student("Shelly", 97, 83, 94);
@@ -20,22 +21,16 @@ public class GradesApplication {
            put("__DAVE__45", dave);
         }};
 
-        getUserDataChoice(students, sc);
-
+        System.out.println(students.keySet());
+        allGradesOrSpecific(students, sc);
     }
 
 
     private static void getUserDataChoice(HashMap<String, Student> students, Input sc){
-        System.out.println("Here are the github usernames of our students:");
-
-        for (String keyName : students.keySet()) {
-            System.out.print(" |" + keyName + "| ");
-        }
-
         System.out.format("%n%nWhat student would you like to see more information on?");
         correctInput:
         do {
-            String userNameChoice = sc.getSc().nextLine();
+            String userNameChoice = sc.getString();
             for (String keyName : students.keySet()) {
                 if (keyName.equals(userNameChoice)){
                     displayStudentInfo(students, userNameChoice);
@@ -48,19 +43,49 @@ public class GradesApplication {
     }
 
     private static void continueOrNot(HashMap<String, Student> students, Input sc){
-        System.out.println("Would you like to get info on another student? [yes/no]");
-        String continueOrNot = sc.getSc().nextLine();
+        System.out.format("%nWould you like to get info on another student? [yes/no]");
+        String continueOrNot = sc.getString();
 
         if (continueOrNot.equalsIgnoreCase("yes") || continueOrNot.equalsIgnoreCase("y")) {
-            getUserDataChoice(students, sc);
+            allGradesOrSpecific(students, sc);
         } else {
             System.out.println("Goodbye");
         }
     }
 
     private static void displayStudentInfo(HashMap<String, Student> students, String userNameChoice){
-        System.out.format("Student name: %s%nStudent grade: %s%n", students.get(userNameChoice).getStudentName(), students.get(userNameChoice).getGradeAverage());
+        System.out.format("Student name: %s%nStudent grade: %s%nAll grades for student: %s",
+                students.get(userNameChoice).getStudentName(),
+                students.get(userNameChoice).getGradeAverage(),
+                students.get(userNameChoice).getStudentGrades());
     }
+
+    private static void allGradesOrSpecific(HashMap<String, Student> students, Input sc){
+        System.out.println("Here are the github usernames of our students:");
+        for (String keyName : students.keySet()) {
+            System.out.print(" |" + keyName + "| ");
+        }
+
+        System.out.format("%n%nWould you like to see all grades for all students or look at one specifically? [all/one]");
+        String allOrOne = sc.getString();
+
+        if (allOrOne.equalsIgnoreCase("all")){
+            for(Student student : students.values()) {
+                System.out.println(student.getStudentGrades());
+            }
+            continueOrNot(students, sc);
+        } else if (allOrOne.equalsIgnoreCase("one")){
+            getUserDataChoice(students, sc);
+        } else {
+            System.out.println("Invalid Input. Try Again.");
+            allGradesOrSpecific(students, sc);
+        }
+
+    }
+
+
+
+
 }
 
 

@@ -5,7 +5,7 @@ public class MovieSearchFunction {
 
     public static void allOrGenre(Input in, Movie[] allMovies){
         System.out.println("Would you like to view all movies or sort by genre? (Type 'all' or genre name: scifi, drama, musical, horror, comedy, animated)");
-        String allOrGenre = in.getSc().nextLine();
+        String allOrGenre = in.getString();
         switch (allOrGenre) {
             case "all": case "scifi": case "drama": case "musical": case "horror": case "comedy": case "animated":
                 masterSearchMovies(allMovies, allOrGenre);

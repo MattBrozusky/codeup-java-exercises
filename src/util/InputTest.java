@@ -1,13 +1,16 @@
 package util;
 
+import java.util.Scanner;
+
 public class InputTest {
 
     public static void main(String[] args) {
-        Input test = new Input();
+        Scanner sc = new Scanner(System.in);
+        Input test = new Input(sc);
 
-        System.out.printf("The string you entered is %s", test.getString(test.getSc()));
+        System.out.printf("The string you entered is %s", test.getString());
 
-        test.getDouble(1, 50, test.getSc());
+        test.getDouble(1, 50);
 
     }
 }

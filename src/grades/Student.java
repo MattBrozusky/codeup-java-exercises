@@ -11,6 +11,10 @@ public class Student {
         return this.studentName;
     }
 
+    public List<Integer> getStudentGrades(){
+        return this.studentGrades;
+    }
+
     public void addGrade(int grade){
         this.studentGrades.add(0, grade);
     }

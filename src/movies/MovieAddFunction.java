@@ -10,9 +10,9 @@ public class MovieAddFunction {
 
     private static Movie userCreatedMovie(Input in){
         System.out.println("Please enter a title for the movie.");
-        String newMovieTitle = in.getSc().nextLine();
+        String newMovieTitle = in.getString();
         System.out.println("Please enter a category for the movie.");
-        String newMovieCategory = in.getSc().nextLine();
+        String newMovieCategory = in.getString();
         return new Movie(newMovieTitle, newMovieCategory);
     }
 
