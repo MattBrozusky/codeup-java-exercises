@@ -20,12 +20,11 @@ public class Input {
     }
 
     public int getInt() {
-        if (!scanner.hasNextInt()) {
-            System.out.println("Not valid integer. Try again.");
-            scanner.nextLine();
+        try {
+            return Integer.valueOf(scanner.nextLine());
+        } catch (NumberFormatException e){
+            System.out.println("Input Valid Integer.");
             return getInt();
-        } else {
-            return scanner.nextInt();
         }
     }
 
@@ -40,12 +39,11 @@ public class Input {
     }
 
     public double getDouble() {
-        if (!scanner.hasNextDouble()) {
-            System.out.println("Not valid integer. Try again.");
-            scanner.nextLine();
+        try {
+            return Double.valueOf(scanner.nextLine());
+        } catch (NumberFormatException e){
+            System.out.println("Input Valid Integer.");
             return getDouble();
-        } else {
-            return scanner.nextDouble();
         }
     }
 
@@ -58,6 +56,27 @@ public class Input {
             return getDouble(min, max);
         }
     }
+
+    public int getBinary(){
+        try {
+            return Integer.valueOf(scanner.nextLine(), 2);
+        } catch (NumberFormatException e){
+            System.out.println("Input Valid Integer.");
+            return getBinary();
+        }
+    }
+
+    public int getHex(){
+        try {
+            return Integer.valueOf(scanner.nextLine(), 16);
+        } catch (NumberFormatException e){
+            System.out.println("Input Valid Integer.");
+            return getBinary();
+        }
+    }
+
+
+
 
 
 

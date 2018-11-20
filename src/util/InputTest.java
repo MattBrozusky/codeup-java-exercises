@@ -8,9 +8,9 @@ public class InputTest {
         Scanner sc = new Scanner(System.in);
         Input test = new Input(sc);
 
-        System.out.printf("The string you entered is %s", test.getString());
+        System.out.printf("The number you entered is %s", test.getHex());
 
-        test.getDouble(1, 50);
+
 
     }
 }
