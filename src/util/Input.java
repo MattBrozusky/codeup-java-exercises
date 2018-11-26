@@ -21,7 +21,7 @@ public class Input {
 
     public int getInt() {
         try {
-            return Integer.valueOf(scanner.nextLine());
+            return Integer.valueOf(getString());
         } catch (NumberFormatException e){
             System.out.println("Input Valid Integer.");
             return getInt();
@@ -40,7 +40,7 @@ public class Input {
 
     public double getDouble() {
         try {
-            return Double.valueOf(scanner.nextLine());
+            return Double.valueOf(getString());
         } catch (NumberFormatException e){
             System.out.println("Input Valid Integer.");
             return getDouble();
@@ -59,7 +59,7 @@ public class Input {
 
     public int getBinary(){
         try {
-            return Integer.valueOf(scanner.nextLine(), 2);
+            return Integer.valueOf(getString(), 2);
         } catch (NumberFormatException e){
             System.out.println("Input Valid Integer.");
             return getBinary();
@@ -68,10 +68,10 @@ public class Input {
 
     public int getHex(){
         try {
-            return Integer.valueOf(scanner.nextLine(), 16);
+            return Integer.valueOf(getString(), 16);
         } catch (NumberFormatException e){
             System.out.println("Input Valid Integer.");
-            return getBinary();
+            return getHex();
         }
     }
 

@@ -8,7 +8,7 @@ public class InputTest {
         Scanner sc = new Scanner(System.in);
         Input test = new Input(sc);
 
-        System.out.printf("The number you entered is %s", test.getHex());
+        System.out.printf("The number you entered is %s", test.getBinary());
 
 
 
